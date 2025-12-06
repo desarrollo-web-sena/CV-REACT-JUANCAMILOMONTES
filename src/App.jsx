@@ -1,3 +1,8 @@
+import CabeceraCV from "./components/CabeceraCV";
+import Perfil from "./components/Perfil";
+import Experiencia from "./components/Experiencia";
+import Educacion from "./components/Educacion";
+
 const datosPersonales = {
   nombre: "Juan Camilo Montes Velasquez",
   cargo: "Estudiante tecnólogo en análisis y desarrollo de software",
@@ -15,7 +20,7 @@ y adaptabilidad. Busco oportunidades para contribuir en proyectos reales,
 aprender nuevas tecnologías como React, Node.js y TypeScript, y aplicar buenas
 prácticas de desarrollo.`;
 
-const Experiencia = [
+const experiencia = [
   {
     id: 1,
     puesto: "Desarrollador Full Stack",
@@ -103,7 +108,7 @@ const educacion = [
     id: 1,
     titulo: "Tecnología en Análisis y Desarrollo de Software",
     institucion: "SENA",
-    ano: "2025-2027",
+    año: "2025-2027",
     tipo: "Tecnólogo",
   },
   {
@@ -186,7 +191,14 @@ const educacion = [
 ];
 
 function App() {
-  return <h2>Commit 1: Datos extraídos (la app fallará hasta el commit 2)</h2>;
+  return (
+    <div style={{padding: "20px"}}>
+      <CabeceraCV {...datosPersonales} />
+      <Perfil resumen={resumen} />
+      <Experiencia lista={experiencia} />
+      <Educacion lista={educacion} />
+    </div>
+  );
 }
 
 export default App;
