@@ -1,16 +1,12 @@
 import {useState} from "react";
-
 import CabeceraCV from "./components/CabeceraCV";
 import Perfil from "./components/Perfil";
 import Experiencia from "./components/Experiencia";
 import Educacion from "./components/Educacion";
-
-import Habilidades from "./components/Habilidades";
 import StackTecnologias from "./components/StackTecnologias";
-import ToggleHabilidades from "./components/ToggleHabilidades";
 import FormularioTecnologia from "./components/FormularioTecnologia";
 
-import {tecnologiasIniciales} from "./cvData";
+const tecnologiasIniciales = ["React", "JavaScript", "HTML", "CSS"];
 
 const datosPersonales = {
   nombre: "Juan Camilo Montes Velasquez",
@@ -38,7 +34,6 @@ const experiencia = [
     descripcion:
       "Desarrollo de aplicaciones web con React y Node.js, gestión de bases de datos SQL y API REST.",
   },
-
   {
     id: 2,
     puesto: "Desarrollador Frontend",
@@ -47,7 +42,6 @@ const experiencia = [
     descripcion:
       "Creación de interfaces de usuario responsivas, implementación de componentes interactivos y testing.",
   },
-
   {
     id: 3,
     puesto: "Desarrollador Backend",
@@ -56,7 +50,6 @@ const experiencia = [
     descripcion:
       "Desarrollo de APIs REST, gestión de bases de datos PostgreSQL y optimización de consultas.",
   },
-
   {
     id: 4,
     puesto: "Diseñador UX/UI",
@@ -65,7 +58,6 @@ const experiencia = [
     descripcion:
       "Diseño de interfaces, prototipado en Figma, research de usuarios y mejora de experiencia.",
   },
-
   {
     id: 5,
     puesto: "Desarrollador Junior",
@@ -74,7 +66,6 @@ const experiencia = [
     descripcion:
       "Mantenimiento de código, corrección de bugs, implementación de nuevas funcionalidades básicas.",
   },
-
   {
     id: 6,
     puesto: "Especialista en Base de Datos",
@@ -83,7 +74,6 @@ const experiencia = [
     descripcion:
       "Administración de servidores SQL, optimización de índices, backup y recuperación de datos.",
   },
-
   {
     id: 7,
     puesto: "QA Tester",
@@ -92,7 +82,6 @@ const experiencia = [
     descripcion:
       "Pruebas manuales y automatizadas, reporte de bugs, documentación de casos de prueba.",
   },
-
   {
     id: 8,
     puesto: "Técnico de Soporte IT",
@@ -101,7 +90,6 @@ const experiencia = [
     descripcion:
       "Atención al cliente, resolución de incidencias técnicas, instalación y configuración de equipos.",
   },
-
   {
     id: 9,
     puesto: "Desarrollador Python",
@@ -110,7 +98,6 @@ const experiencia = [
     descripcion:
       "Scripts de automatización, análisis de datos, creación de reportes y visualizaciones.",
   },
-
   {
     id: 10,
     puesto: "Gerente de Proyecto IT",
@@ -126,10 +113,9 @@ const educacion = [
     id: 1,
     titulo: "Tecnología en Análisis y Desarrollo de Software",
     institucion: "SENA",
-    año: "2025-2027",
+    ano: "2025-2027",
     tipo: "Tecnólogo",
   },
-
   {
     id: 2,
     titulo: "Semillero de Liderazgo — Comunicación No Violenta",
@@ -137,7 +123,6 @@ const educacion = [
     ano: "2024",
     tipo: "Seminario",
   },
-
   {
     id: 3,
     titulo: "Inglés — Cursos Complementarios",
@@ -145,7 +130,6 @@ const educacion = [
     ano: "2025",
     tipo: "Curso Complementario",
   },
-
   {
     id: 4,
     titulo: "Ingeniería de Sistemas",
@@ -153,7 +137,6 @@ const educacion = [
     ano: "2028-2033",
     tipo: "Pregrado",
   },
-
   {
     id: 5,
     titulo: "Desarrollo de Videojuegos",
@@ -161,7 +144,6 @@ const educacion = [
     ano: "2026",
     tipo: "Curso Online",
   },
-
   {
     id: 6,
     titulo: "React.js Avanzado",
@@ -169,7 +151,6 @@ const educacion = [
     ano: "2024",
     tipo: "Curso Online",
   },
-
   {
     id: 7,
     titulo: "Técnico en Redes y Telecomunicaciones",
@@ -177,7 +158,6 @@ const educacion = [
     ano: "2023-2024",
     tipo: "Técnico",
   },
-
   {
     id: 8,
     titulo: "Seguridad de Aplicaciones Web",
@@ -185,7 +165,6 @@ const educacion = [
     ano: "2024",
     tipo: "Taller",
   },
-
   {
     id: 9,
     titulo: "Fundamentos de Bases de Datos SQL",
@@ -193,7 +172,6 @@ const educacion = [
     ano: "2023",
     tipo: "Curso Online",
   },
-
   {
     id: 10,
     titulo: "Scrum Master — Metodologías Ágiles",
@@ -201,7 +179,6 @@ const educacion = [
     ano: "2024",
     tipo: "Certificación",
   },
-
   {
     id: 11,
     titulo: "Cloud Computing con AWS",
@@ -209,7 +186,6 @@ const educacion = [
     ano: "2025",
     tipo: "Curso Online",
   },
-
   {
     id: 12,
     titulo: "Git y GitHub para Principiantes",
@@ -222,10 +198,9 @@ const educacion = [
 function App() {
   const [tecnologias, setTecnologias] = useState(tecnologiasIniciales);
 
-  const [mostrarHabilidades, setMostrarHabilidades] = useState(true);
-
-  const agregarTecnologia = (nuevaTec) => {
-    setTecnologias((prev) => [...prev, nuevaTec]);
+  const agregarTecnologia = (nuevaTecnologia) => {
+    if (!nuevaTecnologia || !nuevaTecnologia.trim()) return;
+    setTecnologias((prev) => [...prev, nuevaTecnologia.trim()]);
   };
 
   return (
@@ -235,18 +210,9 @@ function App() {
       <Experiencia lista={experiencia} />
       <Educacion lista={educacion} />
 
-      {/* --- Toggle de habilidades --- */}
-      <ToggleHabilidades
-        visible={mostrarHabilidades}
-        onToggle={() => setMostrarHabilidades(!mostrarHabilidades)}
-      />
-
-      {mostrarHabilidades && <Habilidades />}
-
-      {/* --- Formulario + Tecnologías --- */}
+      {/* Stack dinámico y formulario */}
+      <StackTecnologias tecnologias={tecnologias} />
       <FormularioTecnologia agregarTecnologia={agregarTecnologia} />
-
-      <StackTecnologias lista={tecnologias} />
     </div>
   );
 }
