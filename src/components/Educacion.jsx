@@ -5,7 +5,7 @@ export default function Educacion({lista}) {
       <ul>
         {lista.map((edu) => (
           <li key={edu.id}>
-            <strong>{edu.titulo}</strong> - {edu.institucion} ({edu.año})
+            <strong>{edu.titulo}</strong> - {edu.institucion} ({edu.ano})
             <p>{edu.tipo}</p>
           </li>
         ))}

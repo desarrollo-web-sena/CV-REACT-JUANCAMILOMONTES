@@ -204,7 +204,7 @@ function App() {
   };
 
   return (
-    <div style={{padding: "20px"}}>
+    <div style={{maxWidth: "900px", margin: "0 auto", padding: "20px"}}>
       <CabeceraCV {...datosPersonales} />
       <Perfil resumen={resumen} />
       <Experiencia lista={experiencia} />

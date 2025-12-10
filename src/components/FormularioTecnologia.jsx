@@ -1,14 +1,14 @@
 // FormularioTecnologia.jsx
 import {useState} from "react";
 
-export default function FormularioTecnologia({onAdd}) {
+export default function FormularioTecnologia({agregarTecnologia}) {
   const [tecnologia, setTecnologia] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!tecnologia.trim()) return;
 
-    onAdd(tecnologia);
+    agregarTecnologia(tecnologia);
     setTecnologia("");
   };
 
