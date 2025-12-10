@@ -67,3 +67,11 @@ Cómo iniciar el proyecto
 
 Para iniciar este proyecto primero debes instalar las dependencias ejecutando el comando npm install dentro de la carpeta del proyecto. Una vez instaladas, puedes iniciar el servidor de desarrollo usando npm run dev. Esto abrirá la aplicación en tu navegador (generalmente en http://localhost:5173
 ). Si deseas generar una versión lista para producción, usa el comando npm run build y, si quieres previsualizar esa versión optimizada, ejecuta npm run preview.
+
+![funcionamiento 1](image-14.png)
+![funcionamiento 2](image-15.png)
+![funcionamiento 3](image-16.png)
+![funcionamiento 4](image-17.png)
+![funcionamiento 5](image-18.png)
+![funcionamiento 6](image-19.png)
+![commits realizados](image-20.png)
